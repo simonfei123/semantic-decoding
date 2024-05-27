@@ -39,6 +39,6 @@ WINDOW = 20
 
 # devices
 
-GPT_DEVICE = "cuda"
-EM_DEVICE = "cuda"
-SM_DEVICE = "cuda"
+GPT_DEVICE = "cuda:7"
+EM_DEVICE = "cuda:7"
+SM_DEVICE = "cuda:7"

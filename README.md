@@ -34,7 +34,7 @@ rm -r __MACOSX/
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocessed_data/UTS01 data_train/train_response/S1/
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocessed_data/UTS02 data_train/train_response/S2/
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocessed_data/UTS03 data_train/train_response/S3/
-aws s3 sync --no-sign-request s3://openneuro.org/ds003020/stimuli data_train/train_stimulus/
+aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/TextGrids data_train/train_stimulus/
 ```
 
 3. Download [test data](https://utexas.box.com/shared/static/ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip) and extract contents into new `data_test/` directory. Stimulus data for `test_stimulus/[EXPERIMENT]` and response data for `test_response/[SUBJECT_ID]` can be downloaded from [OpenNeuro](https://openneuro.org/datasets/ds004510/).

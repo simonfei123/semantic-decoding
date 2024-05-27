@@ -9,7 +9,7 @@ rm -r __MACOSX/
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocessed_data/UTS01 data_train/train_response/S1/
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocessed_data/UTS02 data_train/train_response/S2/
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocessed_data/UTS03 data_train/train_response/S3/
-aws s3 sync --no-sign-request s3://openneuro.org/ds003020/stimuli data_train/train_stimulus/
+aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/TextGrids data_train/train_stimulus/
 wget https://utexas.box.com/shared/static/ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip
 unzip ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip
 rm ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip
