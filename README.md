@@ -16,10 +16,17 @@ pyenv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-```
+## Usage
+
+1. Download [language model data](https://utexas.box.com/shared/static/7ab8qm5e3i0vfsku0ee4dc6hzgeg7nyh.zip) and extract contents into new `data_lm/` directory. 
+```bash
 wget https://utexas.box.com/shared/static/7ab8qm5e3i0vfsku0ee4dc6hzgeg7nyh.zip
 unzip 7ab8qm5e3i0vfsku0ee4dc6hzgeg7nyh.zip
 rm 7ab8qm5e3i0vfsku0ee4dc6hzgeg7nyh.zip
+```
+
+2. Download [training data](https://utexas.box.com/shared/static/3go1g4gcdar2cntjit2knz5jwr3mvxwe.zip) and extract contents into new `data_train/` directory. Stimulus data for `train_stimulus/` and response data for `train_response/[SUBJECT_ID]` can be downloaded from [OpenNeuro](https://openneuro.org/datasets/ds003020/).
+```bash
 wget https://utexas.box.com/shared/static/3go1g4gcdar2cntjit2knz5jwr3mvxwe.zip
 unzip 3go1g4gcdar2cntjit2knz5jwr3mvxwe.zip
 rm 3go1g4gcdar2cntjit2knz5jwr3mvxwe.zip
@@ -28,6 +35,10 @@ aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocesse
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocessed_data/UTS02 data_train/train_response/S2/
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/derivative/preprocessed_data/UTS03 data_train/train_response/S3/
 aws s3 sync --no-sign-request s3://openneuro.org/ds003020/stimuli data_train/train_stimulus/
+```
+
+3. Download [test data](https://utexas.box.com/shared/static/ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip) and extract contents into new `data_test/` directory. Stimulus data for `test_stimulus/[EXPERIMENT]` and response data for `test_response/[SUBJECT_ID]` can be downloaded from [OpenNeuro](https://openneuro.org/datasets/ds004510/).
+```bash
 wget https://utexas.box.com/shared/static/ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip
 unzip ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip
 rm ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip
@@ -37,14 +48,6 @@ aws s3 sync --no-sign-request s3://openneuro.org/ds004510/derivative/preprocesse
 aws s3 sync --no-sign-request s3://openneuro.org/ds004510/derivative/preprocessed_data/UTS03 data_test/test_response/S3/
 aws s3 sync --no-sign-request s3://openneuro.org/ds004510/derivative/TextGrids data_test/test_stimulus/
 ```
-
-## Usage
-
-1. Download [language model data](https://utexas.box.com/shared/static/7ab8qm5e3i0vfsku0ee4dc6hzgeg7nyh.zip) and extract contents into new `data_lm/` directory. 
-
-2. Download [training data](https://utexas.box.com/shared/static/3go1g4gcdar2cntjit2knz5jwr3mvxwe.zip) and extract contents into new `data_train/` directory. Stimulus data for `train_stimulus/` and response data for `train_response/[SUBJECT_ID]` can be downloaded from [OpenNeuro](https://openneuro.org/datasets/ds003020/).
-
-3. Download [test data](https://utexas.box.com/shared/static/ae5u0t3sh4f46nvmrd3skniq0kk2t5uh.zip) and extract contents into new `data_test/` directory. Stimulus data for `test_stimulus/[EXPERIMENT]` and response data for `test_response/[SUBJECT_ID]` can be downloaded from [OpenNeuro](https://openneuro.org/datasets/ds004510/).
 
 4. Estimate the encoding model. The encoding model predicts brain responses from contextual features of the stimulus extracted using GPT. The `--gpt` parameter determines the GPT checkpoint used. Use `--gpt imagined` when estimating models for imagined speech data, as this will extract features using a GPT checkpoint that was not trained on the imagined speech stories. Use `--gpt perceived` when estimating models for other data. The encoding model will be saved in `MODEL_DIR/[SUBJECT_ID]`. Alternatively, download [pre-fit encoding models](https://utexas.box.com/s/ri13t06iwpkyk17h8tfk0dtyva7qtqlz).
 
