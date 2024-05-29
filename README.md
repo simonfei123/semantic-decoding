@@ -65,10 +65,12 @@ python3 decoding/train_WR.py --subject [SUBJECT_ID]
 
 ```bash
 python3 decoding/run_decoder.py --subject [SUBJECT_ID] --experiment [EXPERIMENT_NAME] --task [TASK_NAME]
+python3 decoding/run_decoder.py --subject S1 --experiment perceived_speech --task wheretheressmoke
 ```
 
 7. Evaluate the decoder predictions against reference transcripts. The evaluation results will be saved in `SCORE_DIR/[SUBJECT_ID]/[EXPERIMENT_NAME]`.
 
 ```bash
 python3 decoding/evaluate_predictions.py --subject [SUBJECT_ID] --experiment [EXPERIMENT_NAME] --task [TASK_NAME]
+python3 decoding/evaluate_predictions.py --subject S1 --experiment perceived_speech --task wheretheressmoke
 ```

@@ -4,3 +4,4 @@ data_test/
 pyenv/
 __pycache__/
 models/
+results/
