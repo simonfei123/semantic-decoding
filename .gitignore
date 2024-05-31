@@ -5,3 +5,4 @@ pyenv/
 __pycache__/
 models/
 results/
+scores/
